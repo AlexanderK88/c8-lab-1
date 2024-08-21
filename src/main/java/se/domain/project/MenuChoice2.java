@@ -17,7 +17,7 @@ public class MenuChoice2 {
       System.out.println("Inga priser hittades.");
     } else {
       double average = (double) total / count;
-      System.out.println("Dagens elpriser har ett medelvärde på: " + average + " Öre.");
+      System.out.println("Dagens elpriser har ett medelvärde på: " + average + " öre per kWh.");
     }
   }
 
@@ -32,7 +32,7 @@ public class MenuChoice2 {
     if (minPrice == null) {
       System.out.println("Inga priser hittades.");
     } else {
-      System.out.println("Klockan " + minPrice.getHourRange() + " är priest som lägst: "+ minPrice.getPrice() + " Öre" );
+      System.out.println("Klockan " + minPrice.getHourRange() + " är priest som lägst: "+ minPrice.getPrice() + " öre per kWh." );
     }
   }
 
@@ -47,7 +47,7 @@ public class MenuChoice2 {
     if (maxPrice == null) {
       System.out.println("Inga priser hittades.");
     } else {
-      System.out.println("Klockan " + maxPrice.getHourRange() + " är priset som högst: "+ maxPrice.getPrice() + " Öre" );
+      System.out.println("Klockan " + maxPrice.getHourRange() + " är priset som högst: "+ maxPrice.getPrice() + " öre per kWh." );
     }
   }
 }
