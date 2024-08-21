@@ -1,6 +1,7 @@
 package se.domain.project;
 
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MenuChoice1 {
   public static HourlyPrice[] electricPriceInput() {
@@ -12,20 +13,40 @@ public class MenuChoice1 {
             "16-17", "17-18", "18-19", "19-20", "20-21", "21-22", "22-23", "23-00"
     };
 
-    System.out.println("Välj elpriser för kommande 24 timmar");
+    String stringInputRandomData;
+    while (true) {
+      System.out.println("Vill du ange priser priser själv? J/N: ");
+      stringInputRandomData = sc.nextLine().toUpperCase();
 
-    for (int i = 0; i < prices.length; i++) {
-      while (true) {
-        System.out.print("Ange priset för " + TIME_INTERVALS[i] + ": ");
-        String stringInput = sc.next();
+      if (stringInputRandomData.equals("J") || stringInputRandomData.equals("N")) {
+        break;
+      } else {
+        System.out.println("Ogiltigt input, ange J för att mata in priser eller N för att använda exempel data.");
+      }
+    }
 
-        if (stringInput.matches("^[1-9]\\d*$")) {
-          int userInput = Integer.parseInt(stringInput);
-          prices[i] = new HourlyPrice(TIME_INTERVALS[i], userInput);
-          break;
-        } else {
-          System.out.println("Ogiltigt input, ange ett positivt heltal som inte börjar med noll.");
+    if (stringInputRandomData.equals("J")) {
+      System.out.println("Välj elpriser för kommande 24 timmar");
+
+      for (int i = 0; i < prices.length; i++) {
+        while (true) {
+          System.out.print("Ange priset för " + TIME_INTERVALS[i] + ": ");
+          String stringInputPrice = sc.next();
+
+          if (stringInputPrice.matches("^[1-9]\\d*$")) {
+            int userInputPrice = Integer.parseInt(stringInputPrice);
+            prices[i] = new HourlyPrice(TIME_INTERVALS[i], userInputPrice);
+            break;
+          } else {
+            System.out.println("Ogiltigt input, ange ett positivt heltal som inte börjar med noll.");
+          }
         }
+      }
+    } else {
+      for (int i = 0; i < prices.length; i++) {
+        int randomNumber = ThreadLocalRandom.current().nextInt(1, 101);
+        prices[i] = new HourlyPrice(TIME_INTERVALS[i], randomNumber);
+        System.out.println("Pris för " + TIME_INTERVALS[i] + ": " + prices[i].getPrice() + "Öre");
       }
     }
     return prices;

@@ -9,16 +9,7 @@ public class Main {
     HourlyPrice[] prices = new HourlyPrice[2];
 
     while (displayMenu) {
-      System.out.println("================");
-      System.out.println("\tElpriser");
-      System.out.println("================");
-      System.out.println("1. Inmatning");
-      System.out.println("2. Min, Max och Medal");
-      System.out.println("3. Sortera");
-      System.out.println("4. Bästa Laddningstid (4h)");
-      System.out.println("e. Avsluta\n");
-
-      System.out.print("Välj ett meny alternativ: ");
+      NavigationMenu.navigationMenu();
       String choice = sc.nextLine().toLowerCase();
       System.out.println();
 
@@ -34,7 +25,7 @@ public class Main {
           System.out.println("====================");
           System.out.println("Min, Max och Medal");
           System.out.println("====================");
-          if (prices.length == 0 || !hasValidPrices(prices)) {
+          if (!hasValidPrices(prices)) {
             System.out.println("\nInga priser hittades");
           } else {
             MenuChoice2.minValue(prices);
