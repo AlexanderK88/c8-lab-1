@@ -6,7 +6,7 @@ public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     boolean displayMenu = true;
-    HourlyPrice[] prices = new HourlyPrice[2];
+    HourlyPrice[] prices = new HourlyPrice[24];
 
     while (displayMenu) {
       NavigationMenu.navigationMenu();
@@ -35,7 +35,7 @@ public class Main {
           System.out.println();
           break;
         case "3":
-          System.out.println("\nMenyval 3\n");
+          MenuChoice3.sortPrices(prices);
           break;
         case "4":
           System.out.println("\nMenyval 4\n");
