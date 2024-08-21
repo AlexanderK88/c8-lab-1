@@ -6,12 +6,13 @@ public class MenuChoice2 {
     int total = 0;
     int count = 0;
 
-    for (int i = 0; i < prices.length; i++) {
-      if (prices[i] != null) {
-        total += prices[i].getPrice();
+    for (HourlyPrice price : prices) {
+      if (price != null) {
+        total += price.getPrice();
         count++;
       }
     }
+
     if (count == 0) {
       System.out.println("Inga priser hittades.");
     } else {
@@ -23,9 +24,9 @@ public class MenuChoice2 {
   public static void minValue(HourlyPrice[] prices) {
     HourlyPrice minPrice = null;
 
-    for (int i = 0; i < prices.length; i++) {
-      if (prices[i] != null && (minPrice == null || prices[i].getPrice() < minPrice.getPrice())) {
-        minPrice = prices[i];
+    for (HourlyPrice price : prices) {
+      if (price != null && (minPrice == null || price.getPrice() < minPrice.getPrice())) {
+        minPrice = price;
       }
     }
     if (minPrice == null) {
@@ -38,9 +39,9 @@ public class MenuChoice2 {
   public static void maxValue(HourlyPrice[] prices) {
     HourlyPrice maxPrice = null;
 
-    for (int i = 0; i < prices.length; i++) {
-      if (prices[i] != null && (maxPrice == null || prices[i].getPrice() > maxPrice.getPrice())) {
-        maxPrice = prices[i];
+    for (HourlyPrice price : prices) {
+      if (price != null && (maxPrice == null || price.getPrice() > maxPrice.getPrice())) {
+        maxPrice = price;
       }
     }
     if (maxPrice == null) {
