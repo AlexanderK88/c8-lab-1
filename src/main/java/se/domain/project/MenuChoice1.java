@@ -15,9 +15,18 @@ public class MenuChoice1 {
     System.out.println("Välj elpriser för kommande 24 timmar");
 
     for (int i = 0; i < prices.length; i++) {
-      System.out.print("Ange priset för " + TIME_INTERVALS[i] + ": ");
-      int userInput = sc.nextInt();
-      prices[i] = new HourlyPrice(TIME_INTERVALS[i], userInput);
+      while (true) {
+        System.out.print("Ange priset för " + TIME_INTERVALS[i] + ": ");
+        String stringInput = sc.next();
+
+        if (stringInput.matches("^[1-9]\\d*$")) {
+          int userInput = Integer.parseInt(stringInput);
+          prices[i] = new HourlyPrice(TIME_INTERVALS[i], userInput);
+          break;
+        } else {
+          System.out.println("Ogiltigt input, ange ett positivt heltal som inte börjar med noll.");
+        }
+      }
     }
     return prices;
   }
