@@ -2,7 +2,7 @@ package se.domain.project;
 
 public class MenuChoice2 {
 
-  public static void displayAverage(HourlyPrice[] prices) {
+  public static double average(HourlyPrice[] prices) {
     int total = 0;
     int count = 0;
 
@@ -12,16 +12,14 @@ public class MenuChoice2 {
         count++;
       }
     }
-
-    if (count == 0) {
-      System.out.println("Inga priser hittades.");
-    } else {
-      double average = (double) total / count;
-      System.out.println("Dagens elpriser har ett medelvärde på: " + average + " öre per kWh.");
-    }
+    return count > 0 ? (double)total / count : 0;
   }
 
-  public static void minValue(HourlyPrice[] prices) {
+  public static HourlyPrice minValue(HourlyPrice[] prices) {
+    if (prices == null || prices.length == 0) {
+      return null;
+    }
+
     HourlyPrice minPrice = null;
 
     for (HourlyPrice price : prices) {
@@ -29,14 +27,15 @@ public class MenuChoice2 {
         minPrice = price;
       }
     }
-    if (minPrice == null) {
-      System.out.println("Inga priser hittades.");
-    } else {
-      System.out.println("Klockan " + minPrice.getHourRange() + " är priest som lägst: "+ minPrice.getPrice() + " öre per kWh." );
-    }
+
+    return minPrice;
   }
 
-  public static void maxValue(HourlyPrice[] prices) {
+  public static HourlyPrice maxValue(HourlyPrice[] prices) {
+    if (prices == null || prices.length == 0) {
+      return null;
+    }
+
     HourlyPrice maxPrice = null;
 
     for (HourlyPrice price : prices) {
@@ -44,10 +43,7 @@ public class MenuChoice2 {
         maxPrice = price;
       }
     }
-    if (maxPrice == null) {
-      System.out.println("Inga priser hittades.");
-    } else {
-      System.out.println("Klockan " + maxPrice.getHourRange() + " är priset som högst: "+ maxPrice.getPrice() + " öre per kWh." );
-    }
+
+    return maxPrice;
   }
 }

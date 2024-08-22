@@ -15,7 +15,7 @@ public class MenuChoice1 {
 
     String stringInputRandomData;
     while (true) {
-      System.out.println("Vill du ange priser priser själv? J/N: ");
+      System.out.println("Vill du ange priser själv? J/N: ");
       stringInputRandomData = sc.nextLine().toUpperCase();
 
       if (stringInputRandomData.equals("J") || stringInputRandomData.equals("N")) {

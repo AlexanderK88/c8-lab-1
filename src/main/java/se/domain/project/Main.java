@@ -18,6 +18,7 @@ public class Main {
           System.out.println("=================");
           System.out.println("\tInmatning");
           System.out.println("=================");
+
           prices = MenuChoice1.electricPriceInput();
           System.out.println();
           break;
@@ -25,20 +26,58 @@ public class Main {
           System.out.println("====================");
           System.out.println("Min, Max och Medal");
           System.out.println("====================");
-          if (!hasValidPrices(prices)) {
+
+          if (isEmptyOrInvalidPrices(prices)) {
             System.out.println("\nInga priser hittades");
           } else {
-            MenuChoice2.minValue(prices);
-            MenuChoice2.maxValue(prices);
-            MenuChoice2.displayAverage(prices);
+
+            HourlyPrice minPrice = MenuChoice2.minValue(prices);
+            if (minPrice != null) {
+              System.out.println("Lägsta pris: " + minPrice.getPrice() + " öre per kWh under perioden " + minPrice.getHourRange());
+            } else {
+              System.out.println("Inga priser hittades");
+            }
+
+            HourlyPrice maxPrice = MenuChoice2.maxValue(prices);
+            if (maxPrice != null) {
+              System.out.println("Högsta pris: " + maxPrice.getPrice() + " öre per kWh under perioden " + maxPrice.getHourRange());
+            } else {
+              System.out.println("Inga priser hittades");
+            }
+
+            double averagePrice = MenuChoice2.average(prices);
+            System.out.println("Genomsnittligt pris: " + averagePrice + " öre per kWh.");
           }
           System.out.println();
           break;
         case "3":
-          MenuChoice3.sortPrices(prices);
+          HourlyPrice[] pricesCopy = prices.clone();
+          HourlyPrice[] sortedPrices = MenuChoice3.sortPrices(pricesCopy);
+          if (sortedPrices != null) {
+            System.out.println("Sorterade priser:");
+            for (HourlyPrice price : sortedPrices) {
+              if (price != null) {
+                System.out.println(price.getHourRange() + " : " + price.getPrice() + " öre per kWh.");
+              }
+            }
+          } else {
+            System.out.println("Inga priser hittades");
+          }
+          System.out.println();
           break;
         case "4":
-          System.out.println("\nMenyval 4\n");
+          HourlyPrice[] bestHours = MenuChoice4.findBestChargingHours(prices);
+          if (bestHours != null) {
+            System.out.println("Bästa laddningstid:");
+            for (HourlyPrice price : bestHours) {
+              System.out.println(price.getHourRange() + " : " + price.getPrice() + " öre per kWh.");
+            }
+            double averageBestPrice = MenuChoice2.average(bestHours);
+            System.out.println("Medelpris under dessa 4 timmar: " + averageBestPrice + " öre per kWh.");
+          } else {
+            System.out.println("Inga priser hittades");
+          }
+          System.out.println();
           break;
         case "e":
           displayMenu = false;
@@ -50,12 +89,12 @@ public class Main {
     }
   }
 
-  private static boolean hasValidPrices(HourlyPrice[] prices) {
+  public static boolean isEmptyOrInvalidPrices(HourlyPrice[] prices) {
     for (HourlyPrice price : prices) {
       if (price != null) {
-        return true;
+        return false;
       }
     }
-    return false;
+    return true;
   }
 }
