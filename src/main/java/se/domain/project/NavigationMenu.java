@@ -32,20 +32,20 @@ public class NavigationMenu {
     } else {
       HourlyPrice minPrice = MenuChoice2.minValue(prices);
       if (minPrice != null) {
-        System.out.println("Lägsta pris: " + minPrice.getPrice() + " öre per kWh under perioden " + minPrice.getHourRange());
+        System.out.println("Lägsta pris klockan " + minPrice.getHourRange() + ": " + minPrice.getPrice() + " öre per kWh" );
       } else {
         System.out.println("Inga priser hittades");
       }
 
       HourlyPrice maxPrice = MenuChoice2.maxValue(prices);
       if (maxPrice != null) {
-        System.out.println("Högsta pris: " + maxPrice.getPrice() + " öre per kWh under perioden " + maxPrice.getHourRange());
+        System.out.println("Högsta pris klockan " + maxPrice.getHourRange() + ": "+ maxPrice.getPrice() + " öre per kWh" );
       } else {
         System.out.println("Inga priser hittades");
       }
 
       double averagePrice = MenuChoice2.average(prices);
-      System.out.println("Genomsnittligt pris: " + averagePrice + " öre per kWh.");
+      System.out.println("Genomsnittligt pris: " + String.format("%.2f", averagePrice) + " öre per kWh.");
     }
     System.out.println();
   }
@@ -57,7 +57,7 @@ public class NavigationMenu {
       System.out.println("Sorterade priser:");
       for (HourlyPrice price : sortedPrices) {
         if (price != null) {
-          System.out.println(price.getHourRange() + " : " + price.getPrice() + " öre per kWh.");
+          System.out.println("Pris klockan " + price.getHourRange() + ": " + price.getPrice() + " öre per kWh.");
         }
       }
     } else {
@@ -71,10 +71,10 @@ public class NavigationMenu {
     if (bestHours != null) {
       System.out.println("Bästa laddningstid:");
       for (HourlyPrice price : bestHours) {
-        System.out.println(price.getHourRange() + " : " + price.getPrice() + " öre per kWh.");
+        System.out.println("Pris klockan " + price.getHourRange() + ": " + price.getPrice() + " öre per kWh.");
       }
       double averageBestPrice = MenuChoice2.average(bestHours);
-      System.out.println("Medelpris under dessa 4 timmar: " + averageBestPrice + " öre per kWh.");
+      System.out.println("Medelpris under dessa 4 timmar: " + String.format("%.2f", averageBestPrice) + " öre per kWh.");
     } else {
       System.out.println("Inga priser hittades");
     }
