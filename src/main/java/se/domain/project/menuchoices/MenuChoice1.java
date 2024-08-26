@@ -1,4 +1,6 @@
-package se.domain.project;
+package se.domain.project.menuchoices;
+
+import se.domain.project.HourlyPrice;
 
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;

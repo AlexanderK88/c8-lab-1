@@ -1,4 +1,7 @@
-package se.domain.project;
+package se.domain.project.menuchoices;
+
+import se.domain.project.HourlyPrice;
+import se.domain.project.Main;
 
 public class MenuChoice4 {
 
