@@ -16,18 +16,23 @@ public class Main {
       switch (choice) {
         case "1":
           prices = NavigationMenu.handleInput();
+          backToMenu();
           break;
         case "2":
           NavigationMenu.handleMinMaxMedel(prices);
+          backToMenu();
           break;
         case "3":
           NavigationMenu.handleSortPrices(prices);
+          backToMenu();
           break;
         case "4":
           NavigationMenu.handleBestChargingHours(prices);
+          backToMenu();
           break;
         case "5":
           prices = NavigationMenu.handleLoadingPricesFromFile();
+          backToMenu();
           break;
         case "e":
           NavigationMenu.handleExit();
@@ -48,4 +53,12 @@ public class Main {
     }
     return true;
   }
+
+  public static void backToMenu() {
+    System.out.println("\nTryck på valfri tangent för att återgå till menyn");
+    Scanner wait = new Scanner(System.in);
+    wait.nextLine();
+  }
+
 }
+
