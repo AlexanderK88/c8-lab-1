@@ -28,9 +28,7 @@ public class MenuChoice4 {
     }
 
     HourlyPrice[] bestHours = new HourlyPrice[k];
-    for (int j = 0; j < k; j++) {
-      bestHours[j] = prices[best_start_index + j];
-    }
+    System.arraycopy(prices, best_start_index, bestHours, 0, k);
 
     return bestHours;
   }

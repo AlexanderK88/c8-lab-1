@@ -107,6 +107,6 @@ public class NavigationMenu {
   }
 
   public static void handleInvalidOption() {
-    System.out.println("\nOgiltigt val var god välj ett nummer mellan 1 och 4 eller E för att avsluta\n");
+    System.out.println("Ogiltigt val var god välj ett nummer mellan 1 och 4 eller E för att avsluta\n");
   }
 }
