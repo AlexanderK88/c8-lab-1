@@ -14,6 +14,7 @@ public class MenuChoice2 {
         count++;
       }
     }
+
     return count > 0 ? (double)total / count : 0;
   }
 

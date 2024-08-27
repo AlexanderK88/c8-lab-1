@@ -51,6 +51,7 @@ public class MenuChoice1 {
         System.out.println("Pris klockan " + TIME_INTERVALS[i] + " satt till: " + prices[i].getPrice() + " öre per kWh");
       }
     }
+
     return prices;
   }
 }

@@ -59,6 +59,4 @@ public class Main {
     Scanner wait = new Scanner(System.in);
     wait.nextLine();
   }
-
 }
-

@@ -33,5 +33,4 @@ public class MenuChoice3 {
 
     return prices;
   }
-
 }
