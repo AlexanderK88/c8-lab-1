@@ -55,7 +55,7 @@ public class Main {
   }
 
   public static void backToMenu() {
-    System.out.println("Tryck på enter för att återgå till menyn");
+    System.out.print("Tryck på ENTER för att återgå till menyn");
     Scanner wait = new Scanner(System.in);
     wait.nextLine();
   }
