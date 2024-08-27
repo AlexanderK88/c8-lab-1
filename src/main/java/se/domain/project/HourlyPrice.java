@@ -5,6 +5,8 @@ public class HourlyPrice {
   private final int price;
 
   public HourlyPrice(String hourRange, int price) {
+    if (hourRange == null || hourRange.isEmpty() || price < 0)
+      throw new IllegalArgumentException();
     this.hourRange = hourRange;
     this.price = price;
   }
