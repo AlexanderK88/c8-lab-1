@@ -3,8 +3,11 @@ package se.domain.project;
 import java.util.Scanner;
 
 public class Main {
+
+  public static Scanner sc = new Scanner(System.in);
+
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
+
     boolean displayMenu = true;
     HourlyPrice[] prices = new HourlyPrice[24];
 
@@ -55,8 +58,7 @@ public class Main {
   }
 
   public static void backToMenu() {
-    System.out.print("Tryck på ENTER för att återgå till menyn");
-    Scanner wait = new Scanner(System.in);
-    wait.nextLine();
+    System.out.print("Tryck på ENTER för att återgå till menyn\n");
+    sc.nextLine();
   }
 }

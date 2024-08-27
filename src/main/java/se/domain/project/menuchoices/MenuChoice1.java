@@ -2,12 +2,12 @@ package se.domain.project.menuchoices;
 
 import se.domain.project.HourlyPrice;
 
-import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static se.domain.project.Main.sc;
 
 public class MenuChoice1 {
   public static HourlyPrice[] electricPriceInput() {
-    Scanner sc = new Scanner(System.in);
     HourlyPrice[] prices = new HourlyPrice[24];
     String[] TIME_INTERVALS = {
             "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00",
