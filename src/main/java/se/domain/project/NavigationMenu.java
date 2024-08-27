@@ -1,5 +1,7 @@
 package se.domain.project;
 
+import se.domain.project.menuchoices.*;
+
 public class NavigationMenu {
 
   public static void navigationMenu() {
@@ -10,6 +12,7 @@ public class NavigationMenu {
     System.out.println("2. Min, Max och Medal");
     System.out.println("3. Sortera");
     System.out.println("4. Bästa Laddningstid (4h)");
+    System.out.println("5. Ladda priser från fil");
     System.out.println("e. Avsluta\n");
     System.out.print("Välj ett meny alternativ: ");
   }
@@ -80,6 +83,24 @@ public class NavigationMenu {
     }
     System.out.println();
   }
+
+  public static HourlyPrice[] handleLoadingPricesFromFile() {
+    System.out.println("====================");
+    System.out.println("Laddar priser från fil");
+    System.out.println("====================");
+
+    HourlyPrice[] loadedPrices = MenuChoice5.loadPricesFromFile();
+
+    for (HourlyPrice price : loadedPrices) {
+      if (price != null) {
+        System.out.println("Pris klockan " + price.getHourRange() + " satt till: " + price.getPrice() + " öre per kWh");
+      }
+    }
+    System.out.println();
+
+    return loadedPrices;
+  }
+
 
   public static void handleExit() {
     System.out.println("Programmet avslutas...");

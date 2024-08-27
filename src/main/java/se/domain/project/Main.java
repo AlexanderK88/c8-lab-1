@@ -26,6 +26,9 @@ public class Main {
         case "4":
           NavigationMenu.handleBestChargingHours(prices);
           break;
+        case "5":
+          prices = NavigationMenu.handleLoadingPricesFromFile();
+          break;
         case "e":
           NavigationMenu.handleExit();
           displayMenu = false;
