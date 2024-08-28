@@ -48,7 +48,7 @@ public class MenuChoice1 {
       for (int i = 0; i < prices.length; i++) {
         int randomNumber = ThreadLocalRandom.current().nextInt(1, 101);
         prices[i] = new HourlyPrice(TIME_INTERVALS[i], randomNumber);
-        System.out.println("Pris klockan " + TIME_INTERVALS[i] + " satt till: " + prices[i].getPrice() + " öre per kWh");
+        System.out.println("Pris klockan " + TIME_INTERVALS[i] + " satt till: " + prices[i].price() + " öre per kWh");
       }
     }
 

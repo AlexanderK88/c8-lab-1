@@ -18,7 +18,7 @@ public class MenuChoice4 {
       int current_sum = 0;
 
       for (int j = 0; j < k; j++) {
-        current_sum += prices[i + j].getPrice();
+        current_sum += prices[i + j].price();
       }
 
       if (current_sum < min_sum) {

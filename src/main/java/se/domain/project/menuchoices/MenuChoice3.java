@@ -17,7 +17,7 @@ public class MenuChoice3 {
 
       for (int j = 0; j < prices.length - i - 1; j++) {
         if (prices[j] != null && prices[j + 1] != null) {
-          if (prices[j].getPrice() > prices[j + 1].getPrice()) {
+          if (prices[j].price() > prices[j + 1].price()) {
             HourlyPrice temp = prices[j];
             prices[j] = prices[j + 1];
             prices[j + 1] = temp;

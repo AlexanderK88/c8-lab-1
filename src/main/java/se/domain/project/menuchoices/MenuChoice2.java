@@ -10,7 +10,7 @@ public class MenuChoice2 {
 
     for (HourlyPrice price : prices) {
       if (price != null) {
-        total += price.getPrice();
+        total += price.price();
         count++;
       }
     }
@@ -26,7 +26,7 @@ public class MenuChoice2 {
     HourlyPrice minPrice = null;
 
     for (HourlyPrice price : prices) {
-      if (price != null && (minPrice == null || price.getPrice() < minPrice.getPrice())) {
+      if (price != null && (minPrice == null || price.price() < minPrice.price())) {
         minPrice = price;
       }
     }
@@ -42,7 +42,7 @@ public class MenuChoice2 {
     HourlyPrice maxPrice = null;
 
     for (HourlyPrice price : prices) {
-      if (price != null && (maxPrice == null || price.getPrice() > maxPrice.getPrice())) {
+      if (price != null && (maxPrice == null || price.price() > maxPrice.price())) {
         maxPrice = price;
       }
     }
